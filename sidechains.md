@@ -12,7 +12,7 @@ There are two types of sidechains: one-way and two-way peg. One-way means coins 
 ### Sidechain Consensus Rules
 Sidechains are essentially blockchains that allow unlocking of predefined coins, the same concepts of a distributed consensus model apply in a sidechain.  
 
-The consensus rules of a sidechain can be 'adapted' to be fit to purpose, the rules will be built into the consensus model of the sidechain.  
+The consensus rules of a sidechain can be 'adapted' to be fit to purpose, the rules will be built into the consensus of the sidechain.  
 
 Some examples of possible rules are:  
 - Transfer between blockchains can have built-in limitations for example '*up to a total of X amount are allowed to be transferred into the sidechain*'.  
