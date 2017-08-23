@@ -1,3 +1,4 @@
-# dangershony
+## Stratis Tech Discussions
 
-See [sidechains](sidechains.md)
+Tech update: The calm before the storm (coming)  
+Introduction to [sidechains](sidechains.md) on the Stratis platrofm
