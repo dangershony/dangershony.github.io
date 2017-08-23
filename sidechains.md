@@ -80,9 +80,11 @@ A possible way of 'bringing' outside events to the blockchain (or proofs that an
 
 To overcome this limitation of verifying SPV Proofs are not fake we propose to use a Stake Withdraw Proof by miners, which we'll described later.  
 
-## What Are SPV Proofs
+## What Are SPV Proofs?
 SPV proof (*simplified payment verification proof*)  
-According to the sidechain whitepaper is a proof that an action occurred on a Bitcoin-like proof-of-work blockchain, the POW is important as Stratis is a hybrid POW/POS, and the size of the SPV Proof depends on the fact that a blockchain is POW (to demonstrate an amount of POW a collection of block headers are added to the SPV Proof, the more headers the more work is demonstrated) Stratis being a POS system may need a slightliy different way to demonstrate and verify the SPV Proof.
+
+According to the sidechain whitepaper is a proof that an action occurred on a Bitcoin-like proof-of-work blockchain, the POW is important as Stratis is a hybrid POW/POS, and the size of the SPV Proof depends on the fact that a blockchain is POW (to demonstrate an amount of POW a collection of block headers are added to the SPV Proof, the more headers the more work is demonstrated)  
+Stratis is a POS system and may need a slightliy different way to demonstrate and verify the SPV Proof.
 
 An SPV Proof contains all the nesesary information to prove a transaction exists on a chain of headers.  
 The contents of an SPV Proof are the following:  
@@ -114,7 +116,7 @@ Transferring native coins between sidechains and the economic implcations.
 Stratis plans to offer sidechain networks to enterprises, communities and companies, some of which may decide to create a hybrid sidechain with native and external coins.  
 A possible scenario is in the near future there will be many sidechains linked to the Stratis token, the token will be transferable to any sidechain (that allows two way pegs).  
 
-A sidechain should enforce transfer of coins only from predefined external sidechains, allowing any external sidechain to transfer its native coins to a sidechain will result in malicious users creating useless sidechains and grabbing all the locked coins.  
+A sidechain should enforce transfer of coins only from predefined external sidechains, allowing any external sidechain to transfer its native coins to a sidechain can result in malicious users creating useless sidechains and grabbing all the locked coins.  
 
 The economic implications of this are still being determined. One outcome that comes to mind are chains more popular may draw large portions of the economy into them and by doing this drain other chains, making less popular chains diluted and result in gaining more value.  
 
