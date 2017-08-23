@@ -101,20 +101,20 @@ Fraud Proofs are a way of invalidating fake SPV Proofs or invalidating a Withdra
 WIP
 
 ## Drivechains
-The drivechain model uses a voting system signalled by miners during a very long withdraw voting period,  miners verify the Withdraw Transactions by incrementing a counter (or decrementing).  
-By the end of the withdraw voting period if a withdraw transaction got sufficient votes the transaction can be included in the chain.  
+The drivechain model uses a voting system signalled by miners during a very long withdraw voting period. Miners verify the Withdraw Transactions by incrementing a counter (or decrementing).  
+By the end of the withdraw voting period, if a withdraw transaction got sufficient votes the transaction can be included in the chain.  
 
 ## Federated pegs
-The current Stratis blockchain is a descendent clone of Bitcoin and as a result has no built in support for sidechain withdraws, to overcome this a centralized solution is available.  
+The current Stratis blockchain is a descendent clone of Bitcoin and as a result has no built-in support for sidechain withdraws. To overcome this, a centralized solution is available.  
 
-Coins that are transferred to a sidechain will be locked on the Stratis chain with a multi sig output where the private keys will be kept by custodians, a collection of members that can prove ownership of a large stake plus the Stratis Foundation.  
+Coins that are transferred to a sidechain will be locked on the Stratis chain with a multi-sig output where the private keys will be kept by custodians, a collection of members that can prove ownership of a large stake, as well as by the Stratis Foundation.  
 
 ## Multi sidechain scenario 
 Transferring native coins between sidechains.  
-Stratis plan to offer sidechain networks to enterprises, communities and companies, some of which may decide to create a hybrid sidechain with native and a external coins.  
-A possible scenario is in the near future there will be many sidechains linked to the stratis token, the token will be transferable to any sidechain (that allows two way pegs)  
+Stratis plans to offer sidechain networks to enterprises, communities and companies, some of which may decide to create a hybrid sidechain with native and external coins.  
+A possible scenario is in the near future there will be many sidechains linked to the Stratis token, the token will be transferable to any sidechain (that allows two way pegs).  
 
-The economic implications of this are still being determined, one outcome that comes to mind are chains more popular may draw large portions of the economy in to them and by this drain other chains making less popular chain diluted and result in gaining more value.  
+The economic implications of this are still being determined. One outcome that comes to mind are chains more popular may draw large portions of the economy into them and by doing this drain other chains, making less popular chains diluted and result in gaining more value.  
 
 ## Links (credit)
 Sidechain white paper - [https://blockstream.com/sidechains.pdf](https://blockstream.com/sidechains.pdf)  
