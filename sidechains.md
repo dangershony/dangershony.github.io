@@ -27,68 +27,75 @@ In sidechains we make a distinction between native coins and transferred coins (
 
 **External coins** are created at the genesis block but are locked, and can only be unlocked when a proof is presented that some coins have been locked on another sidechain.  So at creation time, the sidechain needs to define which other sidechains coins are allowed to be transferred in. 
 
+
 ## Examples
 An example of a sidechain coins distribution:  
 The genesis block may have two outputs.  
-- An output of 30 million native coins (unlocked, pre-mine)
+- An output of 30 million native coins (unlocked, pre-mined)
 - An output of 50 million transferrable coins (locked)
 - Allow mining/staking of additional 20 million native coins.
 
 ## Mining/Staking
 The processes of mining/staking are no different in sidechains.  
 
-However sidechains that don’t have native coins may not have an efficient reward program, in that case miners will only collect transaction fees.   
+However, sidechains that don’t have native coins may not have an efficient reward program, in that case miners will only collect transaction fees.   
 
 This might discourage miners and add to the risk of centralization of mining.  
 Some ways to overcome that:  
 - Sidechains that support merged mining for POW.
-- In POS parent chain validators that proof ownership of high value outputs can be sidechain validators.
+- In POS parentchain, validators that prove ownership of high-value outputs can be sidechain validators.
 - Predefined validators with signing keys.
-- Additional options are described in the sidechain white paper (demurrage, time-shifted fees etc..)  
 
-its very unlikely that in the Stratis ecosystem there will be sidechains without a native coin, most likely options are hybrid sidechains with native and external coins.  
+Additional options are described in the sidechain white paper (demurrage, time-shifted fees etc..)  
+
+It's very unlikely that in the Stratis ecosystem there will be sidechains without a native coin, most likely options will be sidechains with native and external coins. We'll refer to these sidechains as 'hybrid sidechains'. 
+
+
 
 ## How Does It Work  
 [Make a nice graphic]  
 Transferring coins between a parentchain and a sidechain:  
 - On the parentchain (say Stratis)  
-   - A user creates a transaction that locks coins in to a special output this is called the Withdraw Lock.  
-   - The user then waits for that transaction to buried under enough blocks, this is called the Confirmation Period.  
-   - The user can now create an SPV Proof  
+   - A user creates a transaction that locks coins into a special output. This is called the *Withdraw Lock*.  
+   - The user then waits for that transaction to be buried under enough blocks. This is called the *Confirmation Period*.  
+   - The user can now create an SPV Proof.  
 - On the sidechain (say StratisS)  
-   - The user can then create a transaction to withdraw coins to the sidechain this is called a Withdraw Transaction.  
+   - The user can then create a transaction to withdraw coins to the sidechain. This is called a *Withdraw Transaction*.  
    - This transaction contains an SPV Proof and an input that spends the equivalent amount of coins (either 1:1 or 1:N, the denominator will be fixed in the sidechain consensus rules).   
-   - Then the user waits for that transaction to be buried under enough blocks before it can be spent, this  is called the Contest Period.  
-   - The transaction can now be spent  
-- Back to the parentchain  
-   - The same processes as above   
-
+   - Then the user waits for that transaction to be buried under enough blocks before it can be spent. This is called the *Contest Period*.  
+   - The transaction can now be spent.  
+- To send coins back to the parentchain  
+   - The same process is repeated, starting from the sidechain.   
+   
+   
 ## Outside World Events
-POW is an important part in the processes of withdrawing coins to a sidechain, the withdraw transaction needs to provide an SPV Proof, the SPV proof contains among other things a proof that a certain amount of work was done on the parent chain, however this can still be faked if a miner has enough hash power.  
+POW is an important part in the processes of withdrawing coins to a sidechain. The withdraw transaction needs to provide an SPV Proof which contains, among other things, a proof that a certain amount of work was done on the parentchain. However, this can still be faked if a miner has enough hash power.  
 
 With POS systems there is no work and a sidechain can't verify the Withdraw Lock was in fact minted by a valid staking block, as the staking coins are not present in the sidechain.  
 
-This raise the issue of how can the sidechain verify an event outside the blockchain actually happened.  
+This raises an issue: How can the sidechain verify an event outside the blockchain actually happened?  
 
-One solution is that a sidechain will track the Block Header chain of another sidechain, however this is not a desired scenario, having chain tracking another chain adds complexity, and what about a multi sidechain scenario, this approach means every sidechain will have to track all other sidechains.  
+One solution is that a sidechain will track the Block Header chain of another sidechain, although this is not a desired scenario. Having chain tracking another chain adds complexity, and what about a multi sidechains scenario? This approach means every sidechain will have to track all other sidechains.  
 
 One of the bigger challenges in blockchain networks is representing events that happened outside of blockchain consensus.
 Creating a block/transaction/smart-contract are events that are contained to the blockchain environment, all the nodes on the network must have the same outcome when validating this events.  
 
-A possible way of 'bringing' outside events to the blockchain (or proofs that an event happened) is using the miners, miners extend the consensus history, and selfishly act in the best interest of the chain they are invested in.  
+A possible way of 'bringing' outside events to the blockchain (or proofs that an event happened) is using the miners as they extend the consensus history, and selfishly act in the best interest of the chain they are invested in.  
 
-To overcome this limitation of verifying SPV Proofs are not fake we propose to use a Ownership Withdraw Proof by miners, this will be described later.  
+To overcome this limitation of verifying SPV Proofs are not fake we propose to use a Ownership Withdraw Proof by miners, which we'll described later.  
+
 
 ## What are SPV proofs
-SPV proof is a collection of metadata that can be used to proof a transaction exists on a certain chain of headers.  
+SPV proof is a collection of metadata that can be used to prove a transaction exists on a certain chain of headers.  
 This contains the following:  
 - The transaction that needs to be proved.  
-- A list of headers where the proof transaction was mined  
-- A Merkle branch of the proof transaction  
+- A list of headers where the transaction was mined.  
+- A Merkle branch of the transaction.  
 
 ## Fraud Proof
-A fraud proof is essentially just another SPV proof with a longer chain showing more hash power was used then a previous SPV Proof.  
-Fraud Proofs are a way of invalidating fake SPV Proofs or invalidating a Withdraw Transaction that has been reorged on the parent chain. 
+A fraud proof is essentially just another SPV proof with a longer chain showing more hash power was used than a previous SPV Proof.  
+Fraud Proofs are a way of invalidating fake SPV Proofs or invalidating a Withdraw Transaction that has been reorg'ed on the parent chain. 
+    
 
 ## Ownership Withdraw Proof
 WIP
