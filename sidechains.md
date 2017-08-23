@@ -112,6 +112,9 @@ A sidechain should enforce transfer of coins only from predefined external sidec
 
 The economic implications of this are still being determined. One outcome that comes to mind are chains more popular may draw large portions of the economy into them and by doing this drain other chains, making less popular chains diluted and result in gaining more value.  
 
+**Additional options**  
+A suggested approach for creating sidechains on Stratis is using in initial POW period when creating a POS sidechain, the POW period can be used to allow parentchain transferrs to a sidechain (or other sidechain coins) and when the POW period is done the sidechain becomes unlinked (i.e. no transfers allowed in or out)  
+
 ## Links (credit)
 
 **Reviewers:** @bokobza
