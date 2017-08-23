@@ -81,11 +81,17 @@ A possible way of 'bringing' outside events to the blockchain (or proofs that an
 To overcome this limitation of verifying SPV Proofs are not fake we propose to use a Stake Withdraw Proof by miners, which we'll described later.  
 
 ## What Are SPV Proofs
-SPV proof is a collection of metadata that can be used to prove a transaction exists on a certain chain of headers.  
-This contains the following:  
-- The transaction that needs to be proved.  
-- A list of headers where the transaction was mined.  
-- A Merkle branch of the transaction.  
+SPV proof (*simplified payment verification proof*)  
+According to the sidechain whitepaper is a proof that an action occurred on a Bitcoin-like proof-of-work blockchain, the POW is important as Stratis is a hybrid POW/POS, and the size of the SPV Proof depends on the fact that a blockchain is POW (to demonstrate an amount of POW a collection of block headers are added to the SPV Proof, the more headers the more work is demonstrated) Stratis being a POS system may need a slightliy different way to demonstrate and verify the SPV Proof.
+
+An SPV Proof contains all the nesesary information to prove a transaction exists on a chain of headers.  
+The contents of an SPV Proof are the following:  
+- A list of block headers to demonstrate proof-of-work (this also demonstrates the Lock Transaction is buried under enough blocks)   
+- The Lock Transaction that was confirmed in one of the headers in the list (more precicely the UTXO)
+- The coinbase trasnaction of the block that the Lock Transaction came from
+- The genesis block hash of the sidechain that the withdraw is coming from   
+- The Merkle branch of the transaction   
+- The destination address on the sidechain
 
 ## Fraud Proof
 A fraud proof is essentially just another SPV proof with a longer chain showing more hash power was used than a previous SPV Proof.  
@@ -126,4 +132,4 @@ SPV and reorg proofs [http://popeller.io/index.php/2016/08/30/spv-proofs-in-side
 Rsk - [http://www.rsk.co/blog/sidechains-drivechains-and-rsk-2-way-peg-design](http://www.rsk.co/blog/sidechains-drivechains-and-rsk-2-way-peg-design)  
 Bitcoin.com - [https://news.bitcoin.com/5-ways-bitcoins-transferred-sidechain/](https://news.bitcoin.com/5-ways-bitcoins-transferred-sidechain/)  
 Drivechain - [http://www.truthcoin.info/blog/drivechain/](http://www.truthcoin.info/blog/drivechain/)  
-Adam Beck - [https://www.mail-archive.com/bitcoin-development@lists.sourceforge.net/msg04315.html](https://www.mail-archive.com/bitcoin-development@lists.sourceforge.net/msg04315.html)  
+Adam Back - [https://www.mail-archive.com/bitcoin-development@lists.sourceforge.net/msg04315.html](https://www.mail-archive.com/bitcoin-development@lists.sourceforge.net/msg04315.html)  
