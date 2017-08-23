@@ -17,7 +17,7 @@ The consensus rules of a sidechain can be 'adapted' to be fit to purpose, the ru
 Some examples of possible rules are:  
 - Transfer between blockchains can have built-in limitations for example '*up to a total of X amount are allowed to be transferred into the sidechain*'.  
 - Transfers can be time-locked (i.e. the pegging window will only be open between block N -> N+1000).  
-- Transfers can only come from predefined blockchains by hardcoding the genesis of allowed blockchains either in the genesis block of the sidechain or in the consensus rules (this can be hard-forked to add more genesis chains).  
+- Transfers can only come from predefined blockchains by hardcoding the genesis of allowed blockchains either in the genesis block of the sidechain or in the consensus rules (this can be hard-forked to add more genesis chains) later we observe that is should always be enforced.  
 - Transferred coins may have a different denominator (not necessarily a 1:1 scale but 1:N).    
 
 ### Coin Distinction
@@ -107,6 +107,8 @@ Coins that are transferred to a sidechain will be locked on the Stratis chain wi
 Transferring native coins between sidechains and the economic implcations.  
 Stratis plans to offer sidechain networks to enterprises, communities and companies, some of which may decide to create a hybrid sidechain with native and external coins.  
 A possible scenario is in the near future there will be many sidechains linked to the Stratis token, the token will be transferable to any sidechain (that allows two way pegs).  
+
+A sidechain should enforce transfer of coins only from predefined external sidechains, allowing any external sidechain to transfer its native coins to a sidechain will result in malicious users creating useless sidechains and grabbing all the locked coins.  
 
 The economic implications of this are still being determined. One outcome that comes to mind are chains more popular may draw large portions of the economy into them and by doing this drain other chains, making less popular chains diluted and result in gaining more value.  
 
