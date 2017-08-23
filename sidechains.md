@@ -110,13 +110,13 @@ A possible scenario is in the near future there will be many sidechains linked t
 The economic implications of this are still being determined, one outcome that comes to mind are chains more popular may draw large portions of the economy in to them and by this drain other chains making less popular chain diluted and result in gaining more value.  
 
 ## Links (credit)
-Sidechain white paper - https://blockstream.com/sidechains.pdf
-Example on elements bloq -  https://elementsproject.org/posts/the-federated-peg-in-elements-alpha/
-Issues/details on stack exchange - https://bitcoin.stackexchange.com/questions/43445/how-would-spv-proofs-be-verified-when-moving-assets-back-in-2-way-pegged-sidecha
-Reorg proof http://popeller.io/index.php/2016/08/30/spv-proofs-in-sidechains/
-Rsk - http://www.rsk.co/blog/sidechains-drivechains-and-rsk-2-way-peg-design
-More - https://news.bitcoin.com/5-ways-bitcoins-transferred-sidechain/
-Drivechain block - http://www.truthcoin.info/blog/drivechain/
-Adam Beck - https://www.mail-archive.com/bitcoin-development@lists.sourceforge.net/msg04315.html
+Sidechain white paper - [https://blockstream.com/sidechains.pdf](https://blockstream.com/sidechains.pdf)  
+Example on elements blog -  [https://elementsproject.org/posts/the-federated-peg-in-elements-alpha/](https://elementsproject.org/posts/the-federated-peg-in-elements-alpha/)  
+Stack exchange comment - [https://bitcoin.stackexchange.com/questions/43445/how-would-spv-proofs-be-verified-when-moving-assets-back-in-2-way-pegged-sidecha](https://bitcoin.stackexchange.com/questions/43445/how-would-spv-proofs-be-verified-when-moving-assets-back-in-2-way-pegged-sidecha])  
+SPV and reorg proofs [http://popeller.io/index.php/2016/08/30/spv-proofs-in-sidechains/](http://popeller.io/index.php/2016/08/30/spv-proofs-in-sidechains/)  
+Rsk - [http://www.rsk.co/blog/sidechains-drivechains-and-rsk-2-way-peg-design](http://www.rsk.co/blog/sidechains-drivechains-and-rsk-2-way-peg-design)  
+Bitcoin.com - [https://news.bitcoin.com/5-ways-bitcoins-transferred-sidechain/](https://news.bitcoin.com/5-ways-bitcoins-transferred-sidechain/)  
+Drivechain - [http://www.truthcoin.info/blog/drivechain/](http://www.truthcoin.info/blog/drivechain/)  
+Adam Beck - [https://www.mail-archive.com/bitcoin-development@lists.sourceforge.net/msg04315.html](https://www.mail-archive.com/bitcoin-development@lists.sourceforge.net/msg04315.html)  
 
 
