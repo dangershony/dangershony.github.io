@@ -2,12 +2,12 @@
 
 ## Sidechains Overview
 
-The purpose of this post is to describe sidechains and how we may intend to implement sidechains on the Stratis Node.  
+The purpose of this post is to describe sidechains and how we intend to implement sidechains on the Stratis Node.  
 
-Sidechains are a way of transferring coins (more accurate is transfer value) between blockchains.  
-In various papers this is also referred to as pegged sidechains.  
+Sidechains are a way of transferring coins (more accurately transfer value) between blockchains.  
+In various papers this is also referred to as 'pegged sidechains'.  
 
-There are two sidechain types one-way/two-way pegs, one-way means coins are burned on the parent chain and cannot transferred back form the sidechain.  
+There are two types of sidechains: one-way and two-way peg. One-way means coins are burned on the chain from which they're sent and cannot be transferred back. With two-way peg sidechains, you guessed it, coins can be transferred back and forth between chains.
 
 ### Sidechain Consensus Rules
 Sidechains are essentially blockchains that allow unlocking of pre-defined coins, the same concepts of a distributed consensus model apply in a sidechain.  
