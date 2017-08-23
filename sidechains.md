@@ -18,15 +18,14 @@ Some examples of possible rules are:
 - Transfer between blockchains can have built-in limitations for example '*up to a total of X amount are allowed to be transferred into the sidechain*'.  
 - Transfers can be time-locked (i.e. the pegging window will only be open between block N -> N+1000).  
 - Transfers can only come from predefined blockchains by hardcoding the genesis of allowed blockchains either in the genesis block of the sidechain or in the consensus rules (this can be hard-forked to add more genesis chains).  
-- Transferred coins may have a different denominator (not necessarily a 1:1 scale but 1:N)    
+- Transferred coins may have a different denominator (not necessarily a 1:1 scale but 1:N).    
 
 ### Coin Distinction
 In sidechains we make a distinction between native coins and transferred coins (we call it external [is this the best name?] coins). This is decided at the genesis block and enforced in the consensus rules.  
 
 **Native coins** are mined (or pre-mined) and cannot be transferred out to the parent chain. However, two sidechains that are both two-way peg can transfer native coins to each other.   
 
-**External coins** are created at the genesis block but are locked, and can only be unlocked when a proof is presented that some coins have been locked on another sidechain.  So at creation time, the sidechain needs to define which other sidechains coins are allowed to be transferred in. 
-
+**External coins** are created at the genesis block but are locked, and can only be unlocked when a proof is presented that some coins have been locked on another sidechain.  So at creation time, the sidechain needs to define which other sidechain coins are allowed to be transferred in. 
 
 ## Examples
 An example of a sidechain coins distribution:  
@@ -50,8 +49,6 @@ Additional options are described in the sidechain white paper (demurrage, time-s
 
 It's very unlikely that in the Stratis ecosystem there will be sidechains without a native coin, most likely options will be sidechains with native and external coins. We'll refer to these sidechains as 'hybrid sidechains'. 
 
-
-
 ## How Does It Work  
 [Make a nice graphic]  
 Transferring coins between a parentchain and a sidechain:  
@@ -67,7 +64,6 @@ Transferring coins between a parentchain and a sidechain:
 - To send coins back to the parentchain  
    - The same process is repeated, starting from the sidechain.   
    
-   
 ## Outside World Events
 POW is an important part in the processes of withdrawing coins to a sidechain. The withdraw transaction needs to provide an SPV Proof which contains, among other things, a proof that a certain amount of work was done on the parentchain. However, this can still be faked if a miner has enough hash power.  
 
@@ -82,10 +78,9 @@ Creating a block/transaction/smart-contract are events that are contained to the
 
 A possible way of 'bringing' outside events to the blockchain (or proofs that an event happened) is using the miners as they extend the consensus history, and selfishly act in the best interest of the chain they are invested in.  
 
-To overcome this limitation of verifying SPV Proofs are not fake we propose to use a Ownership Withdraw Proof by miners, which we'll described later.  
+To overcome this limitation of verifying SPV Proofs are not fake we propose to use a Stake Withdraw Proof by miners, which we'll described later.  
 
-
-## What are SPV proofs
+## What Are SPV Proofs
 SPV proof is a collection of metadata that can be used to prove a transaction exists on a certain chain of headers.  
 This contains the following:  
 - The transaction that needs to be proved.  
@@ -96,21 +91,20 @@ This contains the following:
 A fraud proof is essentially just another SPV proof with a longer chain showing more hash power was used than a previous SPV Proof.  
 Fraud Proofs are a way of invalidating fake SPV Proofs or invalidating a Withdraw Transaction that has been reorg'ed on the parent chain. 
     
-
-## Ownership Withdraw Proof
+## Stake Withdraw Proof
 WIP
 
 ## Drivechains
 The drivechain model uses a voting system signalled by miners during a very long withdraw voting period. Miners verify the Withdraw Transactions by incrementing a counter (or decrementing).  
 By the end of the withdraw voting period, if a withdraw transaction got sufficient votes the transaction can be included in the chain.  
 
-## Federated pegs
+## Federated Pegs
 The current Stratis blockchain is a descendent clone of Bitcoin and as a result has no built-in support for sidechain withdraws. To overcome this, a centralized solution is available.  
 
 Coins that are transferred to a sidechain will be locked on the Stratis chain with a multi-sig output where the private keys will be kept by custodians, a collection of members that can prove ownership of a large stake, as well as by the Stratis Foundation.  
 
-## Multi sidechain scenario 
-Transferring native coins between sidechains.  
+## Multi Sidechain Scenario 
+Transferring native coins between sidechains and the economic implcations.  
 Stratis plans to offer sidechain networks to enterprises, communities and companies, some of which may decide to create a hybrid sidechain with native and external coins.  
 A possible scenario is in the near future there will be many sidechains linked to the Stratis token, the token will be transferable to any sidechain (that allows two way pegs).  
 
@@ -128,5 +122,3 @@ Rsk - [http://www.rsk.co/blog/sidechains-drivechains-and-rsk-2-way-peg-design](h
 Bitcoin.com - [https://news.bitcoin.com/5-ways-bitcoins-transferred-sidechain/](https://news.bitcoin.com/5-ways-bitcoins-transferred-sidechain/)  
 Drivechain - [http://www.truthcoin.info/blog/drivechain/](http://www.truthcoin.info/blog/drivechain/)  
 Adam Beck - [https://www.mail-archive.com/bitcoin-development@lists.sourceforge.net/msg04315.html](https://www.mail-archive.com/bitcoin-development@lists.sourceforge.net/msg04315.html)  
-
-
