@@ -10,15 +10,15 @@ In various papers this is also referred to as 'pegged sidechains'.
 There are two types of sidechains: one-way and two-way peg. One-way means coins are burned on the chain from which they're sent and cannot be transferred back. With two-way peg sidechains, you guessed it, coins can be transferred back and forth between chains.
 
 ### Sidechain Consensus Rules
-Sidechains are essentially blockchains that allow unlocking of pre-defined coins, the same concepts of a distributed consensus model apply in a sidechain.  
+Sidechains are essentially blockchains that allow unlocking of predefined coins, the same concepts of a distributed consensus model apply in a sidechain.  
 
-The consensus rules of a sidechain can be 'adapted' to be fit to purpose, the rules will be built in to the consensus model of the sidechain.  
+The consensus rules of a sidechain can be 'adapted' to be fit to purpose, the rules will be built into the consensus model of the sidechain.  
 
 Some examples of possible rules are:  
-- Transfer between blockchains can have built in limitation for example up to a total of X amount are allowed to be transferred in to the sidechain.  
-- Transfers can be time locked (i.e. the pegging window will only be open between block N -> N+1000).  
-- Transfers can only come from predefined Blockchains by hardcoding allowed genesis blockchains either in the genesis block or in the consensus rules (this can be hard forked to add more genesis chains)  
-- Transferred coins may have a different denominator (not necessarily a 1:1 scale but 1:N)  
+- Transfer between blockchains can have built-in limitations for example '*up to a total of X amount are allowed to be transferred into the sidechain*'.  
+- Transfers can be time-locked (i.e. the pegging window will only be open between block N -> N+1000).  
+- Transfers can only come from predefined blockchains by hardcoding the genesis of allowed blockchains either in the genesis block of the sidechain or in the consensus rules (this can be hard-forked to add more genesis chains).  
+- Transferred coins may have a different denominator (not necessarily a 1:1 scale but 1:N)    
 
 ### Coin Distinction
 In sidechains we make a distinction between native coins and transferred coins (we call it external [is this the best name] coins), this is decided at the genesis block and the consensus rules.  
