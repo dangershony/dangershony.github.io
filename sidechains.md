@@ -117,6 +117,9 @@ A possible scenario is in the near future there will be many sidechains linked t
 The economic implications of this are still being determined. One outcome that comes to mind are chains more popular may draw large portions of the economy into them and by doing this drain other chains, making less popular chains diluted and result in gaining more value.  
 
 ## Links (credit)
+
+**Reviewers:** @bokobza
+
 Sidechain white paper - [https://blockstream.com/sidechains.pdf](https://blockstream.com/sidechains.pdf)  
 Example on elements blog -  [https://elementsproject.org/posts/the-federated-peg-in-elements-alpha/](https://elementsproject.org/posts/the-federated-peg-in-elements-alpha/)  
 Stack exchange comment - [https://bitcoin.stackexchange.com/questions/43445/how-would-spv-proofs-be-verified-when-moving-assets-back-in-2-way-pegged-sidecha](https://bitcoin.stackexchange.com/questions/43445/how-would-spv-proofs-be-verified-when-moving-assets-back-in-2-way-pegged-sidecha])  
