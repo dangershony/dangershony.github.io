@@ -25,7 +25,7 @@ In sidechains we make a distinction between native coins and transferred coins (
 
 **Native coins** are mined (or pre-mined) and cannot be transferred out to the parent chain. However, two sidechains that are both two-way peg can transfer native coins to each other.   
 
-**External coins** are created at the genesis block but are locked, and can only be unlocked when a proof is presented that some coins have been locked on another sidechain.  So at creation time, the sidechain needs to define which other type of coins are allowed to be transferred in. 
+**External coins** are created at the genesis block but are locked, and can only be unlocked when a proof is presented that some coins have been locked on another sidechain.  So at creation time, the sidechain needs to define which other sidechains coins are allowed to be transferred in. 
 
 ## Examples
 An example of a sidechain coins distribution:  
