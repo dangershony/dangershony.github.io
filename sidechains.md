@@ -1,4 +1,5 @@
-# [This is still WIP]
+### Note: This post is not final and may change as we develope our sidechain code  
+
 
 ## Sidechains Overview
 
@@ -17,7 +18,7 @@ The consensus rules of a sidechain can be 'adapted' to be fit to purpose, the ru
 Some examples of possible rules are:  
 - Transfer between blockchains can have built-in limitations for example '*up to a total of X amount are allowed to be transferred into the sidechain*'.  
 - Transfers can be time-locked (i.e. the pegging window will only be open between block N -> N+1000).  
-- Transfers can only come from predefined blockchains by hardcoding the genesis of allowed blockchains either in the genesis block of the sidechain or in the consensus rules (this can be hard-forked to add more genesis chains) later we observe that is should always be enforced.  
+- Transfers can only come from predefined blockchains by hardcoding the genesis of allowed blockchains either in the genesis block of the sidechain or in the consensus rules (the later can be hard-forked to add more genesis chains) note: we observe in a later section that this rule should always be enforced.  
 - Transferred coins may have a different denominator (not necessarily a 1:1 scale but 1:N).    
 
 ### Coin Distinction
