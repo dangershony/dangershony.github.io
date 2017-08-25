@@ -28,17 +28,17 @@ In sidechains we make a distinction between native coins and transferred coins (
 
 **External coins** are created at the genesis block but are locked, and can only be unlocked when a proof is presented that some coins have been locked on another sidechain.  So at creation time, the sidechain needs to define which other sidechain coins are allowed to be transferred in.
 
-## Examples
+### Examples
 An example of a sidechain coins distribution:
 The genesis block may have two outputs.
 - An output of 30 million native coins (unlocked, pre-mined)
 - An output of 50 million transferable coins (locked)
 - Allow mining/staking of additional 20 million native coins.
 
-## Mining/Staking
+### Mining/Staking
 The processes of mining/staking are no different in sidechains.
 
-It is possible to make a sidechain using only external coins that does not use native coins. However, in the case of a two way peg, new external coins can not be created, so this limits the options for block reward. In that scenario, miners will only collect transaction fees.
+It is possible to make a sidechain with only predefined external coins where mining or staking of native coins are not allowed. However, such a sidechains limits the options for block reward. In that scenario, miners will only collect transaction fees.
 
 This might discourage miners and add to the risk of centralization of mining.
 Some ways to overcome that:
@@ -50,7 +50,7 @@ Additional options are described in the sidechain white paper (demurrage, time-s
 
 It's very unlikely that in the Stratis ecosystem there will be sidechains without a native coin, most likely options will be sidechains with native and external coins. We'll refer to these sidechains as 'hybrid sidechains'.
 
-## How Does It Work
+### How Does It Work
 [Make a nice graphic]
 Transferring coins between a parentchain and a sidechain:
 - On the parentchain (say Stratis)
@@ -65,7 +65,7 @@ Transferring coins between a parentchain and a sidechain:
 - To send coins back to the parentchain
    - The same process is repeated, starting from the sidechain.
 
-## Outside World Events
+### Outside World Events
 POW is an important part in the processes of withdrawing coins to a sidechain. The withdraw transaction needs to provide an SPV Proof which contains, among other things, a proof that a certain amount of work was done on the parentchain. However, this can still be faked if a miner has enough hash power.
 
 With POS systems there is no work and a sidechain can't verify the Withdraw Lock was in fact minted by a valid staking block, as the staking coins are not present in the sidechain.
@@ -81,7 +81,7 @@ A possible way of 'bringing' outside events to the blockchain (or proofs that an
 
 To overcome this limitation of verifying SPV Proofs are not fake we propose to use a Stake Withdraw Proof by miners, which we'll described later.
 
-## What Are SPV Proofs?
+### What Are SPV Proofs?
 SPV proof (*simplified payment verification proof*)
 
 According to the sidechain whitepaper, this is a proof that an action occurred on a Bitcoin-like proof-of-work blockchain. The POW is important because Stratis is a hybrid POW/POS, and the size of the SPV Proof depends on the fact that a blockchain is POW. To demonstrate an amount of POW a collection of block headers are added to the SPV Proof. The more headers added, the more work is demonstrated.
@@ -96,27 +96,44 @@ The contents of an SPV Proof are the following:
 - The Merkle branch of the transaction
 - The destination address on the sidechain
 
-## Fraud Proof
+### Fraud Proof  
 A fraud proof is essentially just another SPV proof with a longer chain showing more hash power was used than a previous SPV Proof.
 Fraud Proofs are a way of invalidating fake SPV Proofs or invalidating a Withdraw Transaction that has been reorg'ed on the parent chain.
 
-## Stake Withdraw Proof
-WIP
+## Stake Withdraw Proof  
+Proof-Of-Work networks rely on miners demonstrating a certain amount of work was done in order to extend the consensus history.  
+Proof-Of-Stake networks instead rely on how much stake a miner has.  
+To build on top of the POS security we propose to use the same staking mechanism when verifying SPV Proofs, instead of relying on the work demonstrated in an SPV Proof, nodes on a POS sidechain will rely on the miners with enough stake to approve Withdraw Transaction.  
 
-## Drivechains
+**Stake Withdraw Proof Limit**  
+However as Withdraw Transactions in POS are easier to fake the consensus rules can be changed to require a bigger amount of stake on the block that includes a Withdraw Transaction.  
+The more stake a miner has the more secure we can assume is the Withdraw Transaction, calibrating the amount of stake required is up to the creators of the chain. To change the Stake Withdraw Proof Limit rule, nodes need a hard fork to increase the required stake or a soft fork to reduce it.
+
+**Withdraw Limit**  
+Another observation we make is on the amount of coins in a Withdraw Transaction, allowing a big amount to be transferred in to a sidechain may provide more incentive for a miner to be malicious, to mitigate this risk we propose a Withdraw Limit on the size of a Withdraw Transaction in a direct proportion of the stake that mined it.  
+Say consensus rules restrict that a miner with X amount of coins is allowed to include a block with a Withdraw Transaction (WT), then the amount of coins cannot be more than say a fifth of that stake (i.e WT < X/5) this can be built in to the sidechain consensus. In the Stratis POS not all the outputs are included in the stake block, to be able to use the entire stake in the disposal of a miner they might be allowed to provide a proof a message signed with keys amounting up to the stake limit, this could even be attached to the SPV Proof.
+
+**Voting And Combined Stake**  
+Additional options is using the parts of the voting system proposed in drivechain.  
+
+Miners can approve a WT and other miners can vote on it, this could even amount to a total stake vote, then a WT would not be valid until a combined amount of stake is voted on it.
+
+### Drivechains
 The drivechain model uses a voting system signalled by miners during a very long withdraw voting period. Miners verify the Withdraw Transactions by incrementing a counter (or decrementing).
 By the end of the withdraw voting period, if a withdraw transaction got sufficient votes the transaction can be included in the chain.
 
-## Federated Pegs
+### Federated Pegs
 The current Stratis blockchain is a descendent clone of Bitcoin and as a result has no built-in support for sidechain withdraws. To overcome this, a centralized solution is available.
 
 Coins that are transferred to a sidechain will be locked on the Stratis chain with a multi-sig output where the private keys will be kept by custodians, a collection of members that can prove ownership of a large stake, as well as by the Stratis Foundation.
 
-## Multi Sidechain Scenario
+### Multi Sidechain Scenario
 
 Stratis plans to offer sidechain networks to enterprises, communities and companies, some of which may decide to create a hybrid sidechain with native and external coins.
 
 A sidechain must enforce transfer of coins only from predefined external sidechains. If it was allowed for any external sidechain to transfer its native coins to another sidechain, it could result in malicious users creating useless sidechains and grabbing all the locked coins. So this is easily prevented by predefining the external sidechains.
+
+An additional limitation that can be enforced on a sidechain is that coins can only be transferred back to the chain they came from 'the parentchain' and parent chain coins will only accept a WT with a proof that the same coins are being transferred back.   
 
 ## Economic implications of transferring coins between sidechains
 
@@ -132,12 +149,15 @@ Therefore we can see that two-way pegged sidechains that allow the free flow of 
 
 On the other hand, one-way pegged sidechains and time locked two-way pegged sidechains (time locked after a certain number of blocks) have different economic properties. These sidechains would not have value permanently tied to the rest of the Stratis sidechain ecosystem, except related to the price of stratis that was initially moved to the sidechain. As time goes on, the value of these tokens would be based on the scarcity and utility of the blockchain itself, as with traditional unconnected blockchains that we are more familiar with in the present day. However, this style of sidechain still contributes directly to the scarcity of the main chain Stratis tokens. By permanently locking up supply of the main chain tokens, this directly increases their scarcity.
 
-**Additional options**
+**Suggested Sidechin Configurations**  
+
 A suggested approach for creating sidechains on Stratis is using an initial POW period when creating a POS sidechain, the POW period can be used to allow parentchain transfers to a sidechain (or other sidechain coins) and when the POW period is done the sidechain becomes unlinked (i.e. no transfers allowed in or out)
+
+Due to the economic complexity in allowing sidechains to transfer between each other it's likely that on the Stratis sidechain coins will have to go back to the parent chain before they can be moved to another sidechain.  
 
 ## Links (credit)
 
-**Reviewers:** @bokobza
+**Reviewers:** @bokobza @myco
 
 Sidechain white paper - [https://blockstream.com/sidechains.pdf](https://blockstream.com/sidechains.pdf)
 Example on elements blog -  [https://elementsproject.org/posts/the-federated-peg-in-elements-alpha/](https://elementsproject.org/posts/the-federated-peg-in-elements-alpha/)
