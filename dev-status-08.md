@@ -16,15 +16,15 @@ Our TB dedicated team are working on the Breeze TB integration and the master no
 
 With the Breeze release around the corner this is a very exciting time for our C# Node and the TB protocol.  
 
-**Identity:**
+**Identity:**  
 The Identity team are working on, well I can't at this stage specify more. 
 
-**ICO team:**
+**ICO team:**  
 @robertcarr recently joined Stratis and he is working on the ICO platform.  
 The ICO platform is getting a Dev boost as we are adding very interesting features.  
 It will essentially be an HD-based wallet for enhanced security, and will be hosted in the azure marketplace.  
 
-**Fullnode team:**
+**Fullnode team:**  
 The fullnode is our core tech, it's important to note the fullnode is fully functional 
 and can track both the Bitcoin and Stratis blockchains, we can mine POW blocks with all kind of hash algorithms 
 (all the X13 hash functions) and we can also use the node to stake (up to now we only stake on the stratis testnet).
