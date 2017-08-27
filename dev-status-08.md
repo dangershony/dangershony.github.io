@@ -64,7 +64,7 @@ Stratis aims to provide such a platform, we will create out of the box templates
 
 **The first sidechain on stratis, an ICO chain**  
 A proposal was discussed where the first Stratis sidechain will be created by the devs and community.   
-This will serve as a blockchain for issuing tokens/assets, effectively enabling users to host ICOs directly on a specifically-designed blockchain with token issueing in mind.  
+This will serve as a blockchain for issuing tokens/assets, effectively enabling users to host ICOs directly on a specifically-designed blockchain with token issuing in mind.  
 Among other things this will allow for community members and developers to raise funds to work on projects that add value 
 and yet even more benefit our community.
 
